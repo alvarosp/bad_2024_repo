@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Position
 {
     public string name;
@@ -15,8 +16,13 @@ public class Position
         this.position = position;
     }
 
+    public Position()
+    {
+
+    }
+
     public string ToCSV()
     {
-        return $"{name},{Timestamp},{position.x},{position.y},{position.z}"; //Interpolated String
+        return $"{name};{Timestamp};{position.x};{position.y};{position.z}"; //Interpolated String
     }
 }

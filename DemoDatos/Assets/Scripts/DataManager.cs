@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class DataManager : MonoBehaviour
 {
     public GameObject Player;
     private List<Position> PositionList = new List<Position>();
+    private Positions positions = new Positions();
     private float LogInterval;
     private float SaveInterval;
     private float PrevTime;
@@ -29,6 +33,7 @@ public class DataManager : MonoBehaviour
             Debug.Log("Saved");
             Position pos = new Position("Player", CurrentTime, Player.transform.position);
             PositionList.Add(pos);
+            positions.list.Add(pos);
             PrevTime += LogInterval;
         }
         if (CurrentTime > PrevSaveTime + SaveInterval)
@@ -36,8 +41,9 @@ public class DataManager : MonoBehaviour
             Debug.Log("File saved");
             PrevSaveTime += SaveInterval;
             SaveCSVToFile();
+            SaveJSONToFile();
+            SaveXMLToFile();
         }
-        
     }
 
     private void SaveCSVToFile()
@@ -47,6 +53,28 @@ public class DataManager : MonoBehaviour
         {
             data += pos.ToCSV() + "\n";
         }
-        Debug.Log(data);
+        FileManager.WriteToFile("positions.csv", data);
+    }
+
+    private void SaveJSONToFile()
+    {
+        /*string data = "[";
+        foreach (Position pos in PositionList)
+        {
+            data += JsonUtility.ToJson(pos) + ",";
+        }
+        data = data.Substring(0, data.Length - 1);
+        //data = data.Remove(data.Length - 1));
+        data += "]";*/
+        FileManager.WriteToFile("positions.json", JsonUtility.ToJson(positions));
+    }
+
+    private void SaveXMLToFile()
+    {
+        XmlSerializer serializer = new XmlSerializer(typeof(Positions));
+        using (FileStream stream = new FileStream("positions.xml", FileMode.Create))
+        {
+            serializer.Serialize(stream, positions);
+        }
     }
 }
