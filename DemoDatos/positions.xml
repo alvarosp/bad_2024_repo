@@ -3,47 +3,47 @@
   <list>
     <Position>
       <name>Player</name>
-      <Timestamp>2.96682262</Timestamp>
+      <Timestamp>2.7905035</Timestamp>
       <position>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
+        <x>-3.07117152</x>
+        <y>0.7662533</y>
+        <z>-3.69771552</z>
       </position>
     </Position>
     <Position>
       <name>Player</name>
-      <Timestamp>3.967471</Timestamp>
+      <Timestamp>3.7908504</Timestamp>
       <position>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
+        <x>4.01726961</x>
+        <y>0.556172132</y>
+        <z>-7.76768064</z>
       </position>
     </Position>
     <Position>
       <name>Player</name>
-      <Timestamp>4.97699356</Timestamp>
+      <Timestamp>4.790629</Timestamp>
       <position>
-        <x>-8.682822</x>
-        <y>5.921742E-17</y>
-        <z>-26.669157</z>
+        <x>6.595691</x>
+        <y>0.3755015</y>
+        <z>0.147189885</z>
       </position>
     </Position>
     <Position>
       <name>Player</name>
-      <Timestamp>5.967088</Timestamp>
+      <Timestamp>5.79074144</Timestamp>
       <position>
-        <x>20.5542774</x>
-        <y>3.892255E-17</y>
-        <z>-17.5291576</z>
+        <x>1.17030978</x>
+        <y>0.275854379</y>
+        <z>-4.19372845</z>
       </position>
     </Position>
     <Position>
       <name>Player</name>
-      <Timestamp>6.967644</Timestamp>
+      <Timestamp>6.79021549</Timestamp>
       <position>
-        <x>-13.28474</x>
-        <y>7.53644E-17</y>
-        <z>-33.94111</z>
+        <x>1.28471649</x>
+        <y>0.192456439</y>
+        <z>-14.1384592</z>
       </position>
     </Position>
   </list>

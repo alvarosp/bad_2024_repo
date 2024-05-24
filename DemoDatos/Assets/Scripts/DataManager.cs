@@ -32,6 +32,7 @@ public class DataManager : MonoBehaviour
         {
             Debug.Log("Saved");
             Position pos = new Position("Player", CurrentTime, Player.transform.position);
+            DBManager.Instance.AddPosition(pos);
             PositionList.Add(pos);
             positions.list.Add(pos);
             PrevTime += LogInterval;

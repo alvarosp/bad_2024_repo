@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Globalization;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -41,6 +42,20 @@ public class DBManager : MonoBehaviour
     {
         IDbCommand command = dbConnection.CreateCommand();
         command.CommandText = SQL_CREATE_TABLE_POSITIONS;
+        command.ExecuteNonQuery();
+    }
+
+    public void AddPosition(Position pos)
+    {
+        string timestamp = pos.Timestamp.ToString("F7", CultureInfo.InvariantCulture);
+        string x = pos.position.x.ToString("F7", CultureInfo.InvariantCulture);
+        string y = pos.position.y.ToString("F7", CultureInfo.InvariantCulture);
+        string z = pos.position.z.ToString("F7", CultureInfo.InvariantCulture);
+        string commandText = $"INSERT INTO Posiciones (name, timestamp, x, y, z) VALUES (" +
+            $"'{pos.name}',{timestamp},{x},{y},{z});";
+        Debug.Log(commandText);
+        IDbCommand command = dbConnection.CreateCommand();
+        command.CommandText = commandText;
         command.ExecuteNonQuery();
     }
 
